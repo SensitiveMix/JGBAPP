@@ -1,0 +1,21 @@
+<div class="header">
+    <a href="" ng-click="back()"><img src="../images/header-pic01.png"/></a>
+    <span>客户列表</span>
+    <img src="../images/fxslist-pic01.png"/>
+</div>
+<!--fxslist-->
+<div class="fxslist">
+    <dl>
+        <dt>客户</dt>
+        <dd>
+            <div style="width: 30vw;color: #4e7f5c;" ng-show="display()">
+                暂无客户
+            </div>
+            <div ng-repeat="customer in me.customerList" ng-class="(customer.customer_online ==true)?'':'lixian'"
+                 ng-click="enterOnline(customer._id)"><span>{{customer.customer_name}}</span><img
+                    src="../images/fxslist-pic02.png"/>
+                <a ng-bind="(customer.customer_online ==true)?'在线':'离线'"></a>
+            </div>
+        </dd>
+    </dl>
+</div>

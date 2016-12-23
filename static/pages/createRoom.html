@@ -1,0 +1,29 @@
+<!--header-->
+<div class="header">
+    <a href="" ng-click="back()"><img src="images/header-pic01.png"/></a>
+    <span>沙龙界面</span>
+</div>
+<!--form-->
+<form class="sljm-form form">
+    <img id="logoimg1" src="images/sljm-pic01.jpg"/>
+    <a href="" ng-click="doUpload()" class="portrait">上传头像</a>
+    <input class="roomname" ng-model="name" type="text" placeholder="请输入房间名" />
+    <textarea ng-model="intro" class="roominfo">房间简介</textarea>
+    <p>请选择分类:<span ng-class="card" ng-click="getRoom('邮币卡')">邮币卡</span></p>
+    <a href="" ng-click="create()" class="sljm">创建</a>
+</form>
+
+<script type="text/ng-template" id="templateId.html">
+    <form id="form-signin1" method="post" ng-submit="uploadLogo()"
+          enctype='multipart/form-data'
+          class="form-horizontal">
+        <div class="form-group">
+            <label for="inputEmail3" class="col-sm-4 control-label">沙龙图像</label>
+
+            <div class="col-sm-8">
+                <a href="javascript:void(0);" class="btn_addPic"><span><em>+</em>添加图片</span><input type="file" tabindex="3" title="支持jpg、jpeg、gif、png格式，文件小于5M" size="3" id="fulAvatar1" name="fulAvatar1" class="filePrew"></a>
+                <button id="updateLogo" type="submit" class="btn btn-info" type="button">上 传</button>
+            </div>
+        </div>
+    </form>
+</script>

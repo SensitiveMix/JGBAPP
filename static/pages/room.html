@@ -1,0 +1,31 @@
+<div id="headerScroll" class="header">
+    <a href="" ng-click="back()"><img src="../images/header-pic01.png"/></a>
+    <span>{{room.name}}</span>
+    <a href="" ng-if="collect" ng-click="collect()" class="collectRoom"><img src="{{init_collect_img}}" alt=""></a>
+    <a href="" ng-if="cancel" ng-click="cancelCollect()" class="collectRoom"><img src="../images/room-pic-01R.png"
+                                                                                  alt=""></a>
+</div>
+
+<div id="onlineScroll" class="online" style="overflow-y: scroll;">
+    <dl ng-class="(tech.creator.level =='66'&& tech.creator._id !=me._id)?'tch m1':(tech.creator._id ==me._id?'me m1':'yk m1')"
+        ng-repeat="tech in room.messages track by $index">
+        <dt><img ng-src="{{tech.creator.avatarUrl}}"/>
+            <a ng-if="message.creator.level=='66'">在线</a>
+            <span ng-if="message.creator.level=='66'"> 分析师{{ tech.creator.nick_name }}</span>
+            <span ng-if="message.creator.level!='66'">{{tech.creator.nick_name}}</span></dt>
+        <dd>{{tech.content}}</dd>
+    </dl>
+    <!--<dl class="yk m1" ng-repeat="yk in room.messages|filter:ykfilter">-->
+    <!--<dt><img ng-src="{{yk.creator.avatarUrl}}"/><span>{{yk.creator.nick_name}}</span></dt>-->
+    <!--<dd>{{yk.content}}</dd>-->
+    <!--</dl>-->
+    <!--<dl class="me m1" ng-repeat="me in room.messages|filter:mefilter">-->
+    <!--</time><dt><img ng-src="{{me.creator.avatarUrl}}"/><span>{{me.creator.nick_name}}</span></dt>-->
+    <!--<dd>{{me.content}}</dd>-->
+    <!--</dl>-->
+</div>
+
+<form id="textScroll" class="online-form" ng-controller="MessageCreatorCtrl">
+    <textarea ng-model="newMessage" ctrl-enter-break-line="createMessage()" class="send-text"></textarea>
+    <input class="out_text" ng-click="createMessage()" type="submit" value="发送">
+</form>

@@ -1,0 +1,42 @@
+<!--在线客户-->
+<!--<div class="form form-inline">-->
+<!--<div class="col-md-3" ng-click="enterMetal(user)">-->
+<!--<span><a href="">贵金属理财师</a></span>-->
+<!--</div>-->
+
+<!--&lt;!&ndash;离线客户&ndash;&gt;-->
+<!--<div class="col-md-3" ng-click="enterCard(user)">-->
+<!--<span><a href="">邮币卡理财师</a></span>-->
+<!--</div>-->
+
+<!--<div class="col-md-3" ng-click="enterAnalyst(user)">-->
+<!--<span><a href="">分析师</a></span>-->
+<!--</div>-->
+<!--</div>-->
+
+<div class="header">
+    <a href="" ng-click="back()"><img src="../images/header-pic01.png"/></a>
+    <span>理财师列表</span>
+    <img ng-show="me._id" ng-click="logout()" src="../images/loginout.svg"/>
+</div>
+<!--fxslist-->
+<div class="fxslist">
+    <dl>
+        <dt>邮币卡理财师</dt>
+        <dd>
+            <div ng-class="{true:'',false:'lixian'}[className]" ng-click="enterCard(user)"><span>{{me.belong_card_nick}}</span><img
+                    src="../images/fxslist-pic02.png"/>
+                <a>{{online_name}}</a>
+            </div>
+        </dd>
+    </dl>
+    <dl>
+        <dt>分析师</dt>
+        <dd>
+            <div ng-class="{true:'',false:'lixian'}[className_ast]" ng-click="enterAnalyst(user)"><span>{{me.belong_analyst_nick}}</span><img
+                    src="../images/fxslist-pic02.png"/>
+                <a>{{online_ast_name}}</a>
+            </div>
+        </dd>
+    </dl>
+</div>

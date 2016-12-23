@@ -1,0 +1,27 @@
+<!--header-->
+<div id="analystOnline" class="header" ng-repeat="user in room.user">
+    <a href="" ng-click="back()"><img src="../images/header-pic01.png"/></a>
+    <span>{{ user.nick_name }}</span>
+</div>
+<!--online-->
+<div id="analystArea" autoScrollToBottom class="online" style="overflow-y: scroll">
+    <dl ng-class="(message.creator.level !='66'&&message.creator.level !='1'&&message.creator.level !='2' )?'tch m1':'me m1'"
+        ng-repeat="message in room.messages">
+        <dt><img src="{{message.creator.avatarUrl}}"/><a ng-show="message.creator.level =='0'">在线</a><span
+                ng-show="message.creator.level == '0'">{{message.creator.nick_name}}</span>
+        </dt>
+        <dd>{{message.content}}</dd>
+    </dl>
+</div>
+
+<form id="analystText" class="message-creator online-form" ng-controller="MessageAnalystChatCtrl">
+    <div class="form-group">
+        <textarea required class=" message-input send-text" ng-model="newMessage"
+                  ctrl-enter-break-line="createMessage()" placeholder="Ctrl+Enter 发送"></textarea>
+        <input class="out_text" ng-click="createMessage()" type="submit" value="发送">
+    </div>
+</form>
+
+<script>
+        $("#analystArea").height($(window).height()-$('#analystOnline').height()-$('#analystText').height()-17)
+</script>

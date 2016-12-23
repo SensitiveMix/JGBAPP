@@ -1,0 +1,14 @@
+<!--header-->
+<div class="header">
+    <a href="" ng-click="back()"><img src="../images/header-pic01.png"/></a>
+    <span>注册</span>
+</div>
+<!--form-->
+<form class="register-form form1" ng-submit="register()">
+    <input class="name" type="text" ng-model="nick_name"  placeholder="请输入昵称" />
+    <input class="tell" type="text" ng-model="name"  placeholder="请输入手机号" />
+    <input class="password" type="text" ng-model="password" placeholder="请输入密码" />
+    <input class="repassword" type="text" ng-model="rePassword" placeholder="请再次输入密码" />
+    <button type="submit" class="register">注册</button>
+</form>
+<div class="register-login">已有账号?<a href="/login">立即登录</a></div>

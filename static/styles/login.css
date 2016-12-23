@@ -1,0 +1,15 @@
+.form-login {
+  text-align: center;
+  margin-top: 200px;
+}
+
+.land-register{
+  text-align: right;
+  color: #b5b9bc;
+  padding: 20px 21px;
+  font-size: 18px;
+}
+
+.land-register a{
+  corlor:#f00000;
+}

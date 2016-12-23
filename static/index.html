@@ -1,0 +1,123 @@
+<!doctype html>
+<html ng-app="techNodeApp" class="ng-scope">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <!--<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>JGBApp</title>
+    <link rel="stylesheet" href="/components/ng-dialog/css/ngDialog.min.css">
+    <link rel="stylesheet" href="/components/ng-dialog/css/ngDialog-custom-width.css">
+    <link rel="stylesheet" href="/components/ng-dialog/css/ngDialog-theme-default.min.css">
+    <link rel="stylesheet" href="/components/ng-dialog/css/ngDialog-theme-plain.min.css">
+    <link rel="stylesheet" href="/components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet" href="/styles/login.css">
+    <link rel="stylesheet" href="/styles/rooms.css">
+    <link rel="stylesheet" href="/styles/room.css">
+    <link rel="stylesheet" href="/styles/foot.css"/>
+    <link rel="stylesheet" type="text/css" href="/styles/styles.css"/>
+    <!--<link href="/styles/AdminLTE.min.css" rel="stylesheet" type="text/css">-->
+    <!--<link href="/styles/_all-skins.min.css" rel="stylesheet" type="text/css">-->
+    <!--<link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css">-->
+    <!--<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet"-->
+    <!--type="text/css">-->
+</head>
+<body class="body-style">
+<!--header-->
+<div style="background-color: #1d2228;height:2vh"></div>
+<div class="header" ng-if="myPosition">
+    <div class="navbar navbar-inverse technode-nav navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">导航条</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">金股棒</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav" id="nav-list">
+                    <li class="active" ng-show="me._id&&me.level!='0'"><a href="" ng-click="getCode()"><span>邀请码</span></a>
+                    </li>
+                    <li class="active" ng-show="me._id"><a href="" ng-click="logout()"><span>{{ me.level_name }}&nbsp{{ me.nick_name }}</span>登出</a>
+                    </li>
+                    <li ng-show="!me._id"><a href="/login">登录</a></li>
+                    <li ng-show="!me._id"><a href="/register">注册</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--content-->
+<div class="content">
+    <div class="container">
+        <div class="row" ng-view>
+        </div>
+    </div>
+</div>
+</div>
+
+<div class="footer" ng-if="my_footer">
+    <!--<a class="ftra1" ng-class="value==1?'on':''" ng-click="ftra(1)">行情</a>-->
+    <!--<a class="ftra2" ng-class="value==2?'on':''" ng-click="ftra(2)">资讯</a>-->
+    <!--<a class="ftra3" ng-class="value==3?'on':''" ng-click="ftra(3)">交易圈</a>-->
+    <a class="lft ftra4" ng-class="value==4?'on':''" ng-click="ftra(4)">在线沙龙</a>
+    <a class="rgt ftra5" ng-class="value==5?'on':''" ng-click="ftra(5)"><span ng-bind="init_name"></span></a>
+    <!--<a class="ftra6" href="/customerRoom" ng-show="me.level!=0">我的客户</a>-->
+</div>
+
+
+<!--jser load-->
+<script type="text/javascript" src="http://localhost:82/socket.io/socket.io.js"></script>
+<script type="text/javascript" src="/components/jquery/dist/jquery.js"></script>
+<script type="text/javascript" src="/components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/components/angular/angular.js"></script>
+<script type="text/javascript" src="/components/angular-route/angular-route.js"></script>
+<script type="text/javascript" src="/components/moment/moment.js"></script>
+<script type="text/javascript" src="/components/angular-moment/angular-moment.js"></script>
+<script type="text/javascript" src="/components/moment/lang/zh-cn.js"></script>
+<script type="text/javascript" src="/components/ng-dialog/js/ngDialog.js"></script>
+<script type="text/javascript" src="/technode.js"></script>
+<script type="text/javascript" src="/services/socket.js"></script>
+<script type="text/javascript" src="/services/server.js"></script>
+<script type="text/javascript" src="/services/fileReader.js"></script>
+<script type="text/javascript" src="/router.js"></script>
+
+<script type="text/javascript" src="js/angular-file-upload.js"></script>
+
+<!--directives load-->
+<script type="text/javascript" src="/directives/auto-scroll-to-bottom.js"></script>
+<script type="text/javascript" src="/directives/ctrl-enter-break-line.js"></script>
+
+<!--controller load-->
+<script type="text/javascript" src="/controllers/login.js"></script>
+<script type="text/javascript" src="/controllers/register.js"></script>
+<script type="text/javascript" src="/controllers/rooms.js"></script>
+<script type="text/javascript" src="/controllers/room.js"></script>
+<script type="text/javascript" src="/controllers/customerRoom.js"></script>
+<script type="text/javascript" src="/controllers/customerChatRoom.js"></script>
+<script type="text/javascript" src="/controllers/analystRoom.js"></script>
+<script type="text/javascript" src="/controllers/analystChatRoom.js"></script>
+<script type="text/javascript" src="/controllers/message-creator.js"></script>
+<script type="text/javascript" src="/controllers/message-chat.js"></script>
+<script type="text/javascript" src="/controllers/message-analyst-chat.js"></script>
+<script type="text/javascript" src="/controllers/homePage.js"></script>
+<script type="text/javascript" src="/controllers/info.js"></script>
+<script type="text/javascript" src="/controllers/ring.js"></script>
+<script type="text/javascript" src="/controllers/price.js"></script>
+<script type="text/javascript" src="/controllers/bindingCP.js"></script>
+<script type="text/javascript" src="/controllers/bindingAT.js"></script>
+<script type="text/javascript" src="/controllers/bindingNum.js"></script>
+<script type="text/javascript" src="/controllers/bindingOver.js"></script>
+<script type="text/javascript" src="/controllers/create-room.js"></script>
+
+<script>
+
+</script>
+</body>
+</html>

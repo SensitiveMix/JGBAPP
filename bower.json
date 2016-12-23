@@ -1,0 +1,26 @@
+{
+  "name": "JGB APP",
+  "version": "0.0.0",
+  "homepage": "https://github.com/sunNode/TechNode",
+  "authors": [
+    "sunNode <sunjser@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "angular": "^1.5.7",
+    "angular-route": "~1.2.5",
+    "angular-moment": "~0.5.2",
+    "angular-file-upload": "^2.3.4"
+  },
+  "devDependencies": {
+    "ng-dialog": "^0.6.2"
+  }
+}

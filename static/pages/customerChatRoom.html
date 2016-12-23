@@ -1,0 +1,44 @@
+<!--<div ng-show="true">-->
+<!--<div class="col-md-9">-->
+<!--<div class="panel panel-default room">-->
+<!--<div class="panel-heading room-header" ng-repeat="user in room.user">{{ user.level_name }}{{ user.name }}</div>-->
+<!--<div class="panel-body room-content">-->
+<!--<div class="list-group messages" auto-scroll-to-bottom>-->
+<!--<div class="list-group-item message" ng-repeat="message in room.messages">-->
+<!--<img ng-src="{{message.creator.avatarUrl}}" title="{{message.creator.name}}" class="img-rounded"/>{{message.creator.name}}: {{message.content}}<time am-time-ago="message.createAt"></time>-->
+<!--</div>-->
+<!--</div>-->
+<!--<form class="message-creator" ng-controller="MessageChatCtrl">-->
+<!--<div class="form-group">-->
+<!--<textarea required class="form-control message-input" ng-model="newMessage" ctrl-enter-break-line="createMessage()" placeholder="Ctrl+Enter 发送"></textarea>-->
+<!--</div>-->
+<!--</form>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+
+<!--header-->
+<div id="header_ast" class="header" ng-repeat="user in room.user">
+    <a href="" ng-click="back()"><img src="../images/header-pic01.png"/></a>
+    <span>{{ user.nick_name }}</span>
+</div>
+<!--online-->
+<div id="online_ast" class="online_ast" style="overflow-y: scroll">
+    <dl ng-class="(message.creator.level !='0')?'tch m1':'me m1'" ng-repeat="message in room.messages">
+        <dt><img src="{{message.creator.avatarUrl}}"/><a ng-show="message.creator.level!='0'">在线</a><span ng-show="message.creator.level!='0'">{{message.creator.nick_name}}</span>
+        </dt>
+        <dd>{{message.content}}</dd>
+    </dl>
+</div>
+
+<form id="text_ast" class="message-creator online-form" ng-controller="MessageChatCtrl">
+    <div class="form-group">
+        <textarea required class=" message-input send-text" ng-model="newMessage"
+                  ctrl-enter-break-line="createMessage()" placeholder="Ctrl+Enter 发送"></textarea>
+        <input class="out_text" ng-click="createMessage()" type="submit" value="发送">
+    </div>
+</form>
+<script>
+        $(".online_ast").height($(window).height()-$('#header_ast').height()-$('#text_ast').height()-17)
+</script>

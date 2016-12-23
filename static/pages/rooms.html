@@ -1,0 +1,52 @@
+<div class="header">
+    <a href="" ng-click="back()"><img src="../images/header-pic01.png"/></a>
+    <span>房间列表</span>
+    <a ng-href="/createRoom" style="float: right;padding-top: 15px;color:white;font-size: 14px;text-decoration: none; " ng-if="me.level=='66'" class="room-top-a1">创建房间</a>
+    <img ng-show="me._id" ng-click="logout()" src="../images/loginout.svg"/>
+</div>
+<!--room-top-->
+<div class="room-top">
+
+    <a ng-click="a1()" class="room-top-a1" style="{{ a1_css }}">{{ allRoom }}<img src="{{ a1_img }}"/></a>
+    <a ng-click="a2()" class="room-top-a2" style="{{ a2_css }}">收藏<img src="{{ a2_img }}"/></a>
+    <a ng-click="searchHistory()" class="room-top-a3" style="{{ a3_css }}">历史<img src="{{ a3_img }}"/></a>
+</div>
+<!--../images/room-pic05R.png-->
+<div class="salon_tab_con" ng-hide="element" style="{{ con_style }}">
+    <ul>
+        <li ng-click="salon_default()">默认排序</li>
+        <!--<li ng-click="salon_metal()">贵金属</li>-->
+        <li ng-click="salon_card()">邮币卡</li>
+    </ul>
+    <div ng-click="close()" class="salon_tab_close">关闭</div>
+</div>
+
+
+<div class="room" style="overflow-y: scroll">
+    <dl ng-class="display(room._id)?'':'rlx'" ng-repeat="room in filteredRooms|orderBy:'-users.length' track by $index">
+        <dt><img ng-src="{{room.creator_avatarUrl}}"/><a>离线</a></dt>
+        <dd ng-click="enterRoom(room)">
+            <h3><span>{{room.creator_name}}房间</span><a>LV.1</a></h3>
+
+            <p>{{room.intro}}</p>
+            <span class="room-span1">{{room.status}}</span><span class="room-span2">{{room.users.length}}</span>
+            <img ng-click="enterRoom(room)" src="../images/room-pic04.png"/>
+        </dd>
+    </dl>
+</div>
+
+
+<!--<div class="row no-room" ng-show="filteredRooms.length == 0 && searchKey">-->
+    <!--<form class="form-inline no-room-form">-->
+        <!--<div class="form-group">-->
+            <!--没找到你想要的房间<strong class="label label-default no-room-label">{{searchKey}}</strong>，-->
+            <!--<button class="btn btn-warning" ng-click="createRoom()">点击新建</button>-->
+        <!--</div>-->
+    <!--</form>-->
+<!--</div>-->
+
+<script>
+    $(".room").height($(window).height()-$('.room-top').height()-$('.header').height()-80)
+</script>
+
+

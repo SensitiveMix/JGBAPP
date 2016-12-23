@@ -1,0 +1,15 @@
+<div class="header">
+    <a href="" ng-click="back()"><img src="../images/header-pic01.png"/></a>
+    <span>{{loginName}}</span>
+</div>
+<form class="land-form form form-login" ng-submit="login()">
+    <p class="{{f1}}"><input class="tell" style="background: url({{f1_img}} ) no-repeat 4.5vw center;background-size:auto 50%;" required ng-model="name" ng-pattern="/\d+/" ng-maxlength="25"  type="text" placeholder="{{placeholders}}" /></p>
+    <p class="{{f2}}"><input class="password" style="background: url({{f2_img}}) no-repeat 4.5vw center;background-size:auto 50%;" required ng-model="password" type="password" placeholder="请输入密码" /></p>
+    <div style="margin: 10px 0;font-size: 18px">
+        <input type="radio" name="status" ng-model="status" value="normal"  ng-change="getValue(0)">普通用户
+        <input type="radio" name="status" ng-model="status" value="analyst" ng-change="getValue(1)">老师
+    </div>
+    <p ng-bind="error" style="color: red;margin: 5px 0"></p>
+    <button type="submit" class="land">登录</button>
+</form>
+<div class="land-register">没有账号?<a href="/register">立即注册</a></div>
