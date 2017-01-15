@@ -10,7 +10,7 @@
 [![Standard - JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 ## Installation
 ```bash
-git clone https://github.com/sunNode/JGBAPP
+git clone git@github.com:SensitiveMix/JGBAPP.git
 ```
 
 ## Usage
