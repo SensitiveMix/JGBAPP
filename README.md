@@ -9,6 +9,8 @@
 
 [![Standard - JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 ## Installation
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/SensitiveMix/JGBAPP.svg)](https://greenkeeper.io/)
 ```bash
 git clone git@github.com:SensitiveMix/JGBAPP.git
 ```
